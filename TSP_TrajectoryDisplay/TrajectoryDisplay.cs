@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TSP_TrajectoryDisplay
 {
-    public partial class Form1 : Form
+    public partial class TrajectoryDisplay : Form
     {
-        public Form1()
+        public TrajectoryDisplay()
         {
             InitializeComponent();
         }

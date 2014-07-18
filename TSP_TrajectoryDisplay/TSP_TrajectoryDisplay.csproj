@@ -44,16 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="TrajectoryDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="TrajectoryDisplay.Designer.cs">
+      <DependentUpon>TrajectoryDisplay.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="TrajectoryDisplay.resx">
+      <DependentUpon>TrajectoryDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -63,7 +63,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="instances\cpmp\trajectory.log" />
+    <None Include="instances\tsp\eil51.tsp" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,6 +79,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="instances\cpmp\pmedcap1%281%29.txt" />
+    <Content Include="instances\cpmp\格式说明.txt" />
+    <Content Include="instances\tsp\LOTLS_eil51.txt" />
+    <Content Include="instances\tsp\LOTS_eil51.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
