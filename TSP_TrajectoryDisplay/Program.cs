@@ -16,7 +16,7 @@ namespace TSP_TrajectoryDisplay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new trajectoryDisplay());
+            Application.Run(new TrajectoryDisplay());
         }
     }
 }

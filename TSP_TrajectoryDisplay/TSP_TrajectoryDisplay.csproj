@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TspDisplay.cs" />
     <EmbeddedResource Include="TrajectoryDisplay.resx">
       <DependentUpon>TrajectoryDisplay.cs</DependentUpon>
     </EmbeddedResource>

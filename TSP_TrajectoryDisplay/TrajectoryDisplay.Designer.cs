@@ -1,6 +1,6 @@
 ﻿namespace TSP_TrajectoryDisplay
 {
-    partial class trajectoryDisplay
+    partial class TrajectoryDisplay
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(trajectoryDisplay));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrajectoryDisplay));
             this.algorithmTab = new System.Windows.Forms.TabControl();
             this.tspTab = new System.Windows.Forms.TabPage();
-            this.playerPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.playControlPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.playButton = new System.Windows.Forms.Button();
-            this.stopButton = new System.Windows.Forms.Button();
-            this.solutionSlider = new System.Windows.Forms.TrackBar();
-            this.solutionSpinButton = new System.Windows.Forms.NumericUpDown();
-            this.paintPanel = new System.Windows.Forms.Panel();
+            this.tspPlayerPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tspPlayControlPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.tspPlayButton = new System.Windows.Forms.Button();
+            this.tspStopButton = new System.Windows.Forms.Button();
+            this.tspSolutionSlider = new System.Windows.Forms.TrackBar();
+            this.tspSolutionSpinButton = new System.Windows.Forms.NumericUpDown();
+            this.tspPaintPanel = new System.Windows.Forms.Panel();
             this.cpmpTab = new System.Windows.Forms.TabPage();
             this.algorithmTab.SuspendLayout();
             this.tspTab.SuspendLayout();
-            this.playerPanel.SuspendLayout();
-            this.playControlPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.solutionSlider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.solutionSpinButton)).BeginInit();
+            this.tspPlayerPanel.SuspendLayout();
+            this.tspPlayControlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tspSolutionSlider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tspSolutionSpinButton)).BeginInit();
             this.SuspendLayout();
             // 
             // algorithmTab
@@ -63,7 +63,7 @@
             // 
             // tspTab
             // 
-            this.tspTab.Controls.Add(this.playerPanel);
+            this.tspTab.Controls.Add(this.tspPlayerPanel);
             this.tspTab.Location = new System.Drawing.Point(4, 22);
             this.tspTab.Name = "tspTab";
             this.tspTab.Padding = new System.Windows.Forms.Padding(3);
@@ -71,113 +71,113 @@
             this.tspTab.TabIndex = 0;
             this.tspTab.Text = "TSP";
             this.tspTab.UseVisualStyleBackColor = true;
+            this.tspTab.Click += new System.EventHandler(this.tspTab_Click);
             // 
-            // playerPanel
+            // tspPlayerPanel
             // 
-            this.playerPanel.ColumnCount = 1;
-            this.playerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.playerPanel.Controls.Add(this.playControlPanel, 0, 1);
-            this.playerPanel.Controls.Add(this.paintPanel, 0, 0);
-            this.playerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playerPanel.Location = new System.Drawing.Point(3, 3);
-            this.playerPanel.Name = "playerPanel";
-            this.playerPanel.RowCount = 2;
-            this.playerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.playerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.playerPanel.Size = new System.Drawing.Size(600, 452);
-            this.playerPanel.TabIndex = 0;
+            this.tspPlayerPanel.ColumnCount = 1;
+            this.tspPlayerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tspPlayerPanel.Controls.Add(this.tspPlayControlPanel, 0, 1);
+            this.tspPlayerPanel.Controls.Add(this.tspPaintPanel, 0, 0);
+            this.tspPlayerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspPlayerPanel.Location = new System.Drawing.Point(3, 3);
+            this.tspPlayerPanel.Name = "tspPlayerPanel";
+            this.tspPlayerPanel.RowCount = 2;
+            this.tspPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tspPlayerPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tspPlayerPanel.Size = new System.Drawing.Size(600, 452);
+            this.tspPlayerPanel.TabIndex = 0;
             // 
-            // playControlPanel
+            // tspPlayControlPanel
             // 
-            this.playControlPanel.ColumnCount = 4;
-            this.playControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.playControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.playControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.playControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.playControlPanel.Controls.Add(this.playButton, 2, 0);
-            this.playControlPanel.Controls.Add(this.stopButton, 3, 0);
-            this.playControlPanel.Controls.Add(this.solutionSlider, 0, 0);
-            this.playControlPanel.Controls.Add(this.solutionSpinButton, 1, 0);
-            this.playControlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.playControlPanel.Location = new System.Drawing.Point(3, 419);
-            this.playControlPanel.Name = "playControlPanel";
-            this.playControlPanel.RowCount = 1;
-            this.playControlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.playControlPanel.Size = new System.Drawing.Size(594, 30);
-            this.playControlPanel.TabIndex = 5;
+            this.tspPlayControlPanel.ColumnCount = 4;
+            this.tspPlayControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tspPlayControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tspPlayControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tspPlayControlPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tspPlayControlPanel.Controls.Add(this.tspPlayButton, 2, 0);
+            this.tspPlayControlPanel.Controls.Add(this.tspStopButton, 3, 0);
+            this.tspPlayControlPanel.Controls.Add(this.tspSolutionSlider, 0, 0);
+            this.tspPlayControlPanel.Controls.Add(this.tspSolutionSpinButton, 1, 0);
+            this.tspPlayControlPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tspPlayControlPanel.Location = new System.Drawing.Point(3, 419);
+            this.tspPlayControlPanel.Name = "tspPlayControlPanel";
+            this.tspPlayControlPanel.RowCount = 1;
+            this.tspPlayControlPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tspPlayControlPanel.Size = new System.Drawing.Size(594, 30);
+            this.tspPlayControlPanel.TabIndex = 5;
             // 
-            // playButton
+            // tspPlayButton
             // 
-            this.playButton.BackgroundImage = global::TSP_TrajectoryDisplay.Properties.Resources._30play;
-            this.playButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.playButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.playButton.Location = new System.Drawing.Point(537, 3);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(24, 24);
-            this.playButton.TabIndex = 1;
-            this.playButton.UseVisualStyleBackColor = true;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.tspPlayButton.BackgroundImage = global::TSP_TrajectoryDisplay.Properties.Resources._30play;
+            this.tspPlayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tspPlayButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspPlayButton.Location = new System.Drawing.Point(537, 3);
+            this.tspPlayButton.Name = "tspPlayButton";
+            this.tspPlayButton.Size = new System.Drawing.Size(24, 24);
+            this.tspPlayButton.TabIndex = 1;
+            this.tspPlayButton.UseVisualStyleBackColor = true;
+            this.tspPlayButton.Click += new System.EventHandler(this.tspPlayButton_Click);
             // 
-            // stopButton
+            // tspStopButton
             // 
-            this.stopButton.BackgroundImage = global::TSP_TrajectoryDisplay.Properties.Resources._30stop;
-            this.stopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.stopButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.stopButton.Location = new System.Drawing.Point(567, 3);
-            this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(24, 24);
-            this.stopButton.TabIndex = 2;
-            this.stopButton.UseVisualStyleBackColor = true;
-            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+            this.tspStopButton.BackgroundImage = global::TSP_TrajectoryDisplay.Properties.Resources._30stop;
+            this.tspStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tspStopButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspStopButton.Location = new System.Drawing.Point(567, 3);
+            this.tspStopButton.Name = "tspStopButton";
+            this.tspStopButton.Size = new System.Drawing.Size(24, 24);
+            this.tspStopButton.TabIndex = 2;
+            this.tspStopButton.UseVisualStyleBackColor = true;
+            this.tspStopButton.Click += new System.EventHandler(this.tspStopButton_Click);
             // 
-            // solutionSlider
+            // tspSolutionSlider
             // 
-            this.solutionSlider.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.solutionSlider.LargeChange = 50;
-            this.solutionSlider.Location = new System.Drawing.Point(3, 3);
-            this.solutionSlider.Maximum = 466;
-            this.solutionSlider.Minimum = 1;
-            this.solutionSlider.Name = "solutionSlider";
-            this.solutionSlider.Size = new System.Drawing.Size(464, 24);
-            this.solutionSlider.TabIndex = 3;
-            this.solutionSlider.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.solutionSlider.Value = 1;
-            this.solutionSlider.Scroll += new System.EventHandler(this.solutionSlider_Scroll);
+            this.tspSolutionSlider.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspSolutionSlider.LargeChange = 50;
+            this.tspSolutionSlider.Location = new System.Drawing.Point(3, 3);
+            this.tspSolutionSlider.Maximum = 466;
+            this.tspSolutionSlider.Minimum = 1;
+            this.tspSolutionSlider.Name = "tspSolutionSlider";
+            this.tspSolutionSlider.Size = new System.Drawing.Size(464, 24);
+            this.tspSolutionSlider.TabIndex = 3;
+            this.tspSolutionSlider.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.tspSolutionSlider.Value = 1;
+            this.tspSolutionSlider.Scroll += new System.EventHandler(this.tspSolutionSlider_Scroll);
             // 
-            // solutionSpinButton
+            // tspSolutionSpinButton
             // 
-            this.solutionSpinButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.solutionSpinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.solutionSpinButton.Location = new System.Drawing.Point(473, 3);
-            this.solutionSpinButton.Maximum = new decimal(new int[] {
+            this.tspSolutionSpinButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspSolutionSpinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tspSolutionSpinButton.Location = new System.Drawing.Point(473, 3);
+            this.tspSolutionSpinButton.Maximum = new decimal(new int[] {
             466,
             0,
             0,
             0});
-            this.solutionSpinButton.Minimum = new decimal(new int[] {
+            this.tspSolutionSpinButton.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.solutionSpinButton.Name = "solutionSpinButton";
-            this.solutionSpinButton.Size = new System.Drawing.Size(58, 26);
-            this.solutionSpinButton.TabIndex = 0;
-            this.solutionSpinButton.Value = new decimal(new int[] {
+            this.tspSolutionSpinButton.Name = "tspSolutionSpinButton";
+            this.tspSolutionSpinButton.Size = new System.Drawing.Size(58, 26);
+            this.tspSolutionSpinButton.TabIndex = 0;
+            this.tspSolutionSpinButton.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.solutionSpinButton.ValueChanged += new System.EventHandler(this.solutionSpinButton_ValueChanged);
+            this.tspSolutionSpinButton.ValueChanged += new System.EventHandler(this.tspSolutionSpinButton_ValueChanged);
             // 
-            // paintPanel
+            // tspPaintPanel
             // 
-            this.paintPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.paintPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paintPanel.Location = new System.Drawing.Point(3, 3);
-            this.paintPanel.Name = "paintPanel";
-            this.paintPanel.Size = new System.Drawing.Size(594, 410);
-            this.paintPanel.TabIndex = 6;
-            this.paintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paintPanel_Paint);
+            this.tspPaintPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tspPaintPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tspPaintPanel.Location = new System.Drawing.Point(3, 3);
+            this.tspPaintPanel.Name = "tspPaintPanel";
+            this.tspPaintPanel.Size = new System.Drawing.Size(594, 410);
+            this.tspPaintPanel.TabIndex = 6;
             // 
             // cpmpTab
             // 
@@ -188,8 +188,9 @@
             this.cpmpTab.TabIndex = 1;
             this.cpmpTab.Text = "CPMP";
             this.cpmpTab.UseVisualStyleBackColor = true;
+            this.cpmpTab.Click += new System.EventHandler(this.cpmpTab_Click);
             // 
-            // trajectoryDisplay
+            // TrajectoryDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,15 +198,15 @@
             this.Controls.Add(this.algorithmTab);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "trajectoryDisplay";
+            this.Name = "TrajectoryDisplay";
             this.Text = "TSP与CPMP求解过程演示";
             this.algorithmTab.ResumeLayout(false);
             this.tspTab.ResumeLayout(false);
-            this.playerPanel.ResumeLayout(false);
-            this.playControlPanel.ResumeLayout(false);
-            this.playControlPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.solutionSlider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.solutionSpinButton)).EndInit();
+            this.tspPlayerPanel.ResumeLayout(false);
+            this.tspPlayControlPanel.ResumeLayout(false);
+            this.tspPlayControlPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tspSolutionSlider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tspSolutionSpinButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -215,13 +216,13 @@
         private System.Windows.Forms.TabControl algorithmTab;
         private System.Windows.Forms.TabPage tspTab;
         private System.Windows.Forms.TabPage cpmpTab;
-        private System.Windows.Forms.TableLayoutPanel playerPanel;
-        private System.Windows.Forms.TableLayoutPanel playControlPanel;
-        private System.Windows.Forms.NumericUpDown solutionSpinButton;
-        private System.Windows.Forms.Button playButton;
-        private System.Windows.Forms.Button stopButton;
-        private System.Windows.Forms.TrackBar solutionSlider;
-        private System.Windows.Forms.Panel paintPanel;
+        private System.Windows.Forms.TableLayoutPanel tspPlayerPanel;
+        private System.Windows.Forms.TableLayoutPanel tspPlayControlPanel;
+        private System.Windows.Forms.NumericUpDown tspSolutionSpinButton;
+        private System.Windows.Forms.Button tspPlayButton;
+        private System.Windows.Forms.Button tspStopButton;
+        private System.Windows.Forms.TrackBar tspSolutionSlider;
+        private System.Windows.Forms.Panel tspPaintPanel;
     }
 }
 
