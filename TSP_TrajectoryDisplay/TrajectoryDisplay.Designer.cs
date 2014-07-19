@@ -60,6 +60,7 @@
             this.algorithmTab.Size = new System.Drawing.Size(614, 484);
             this.algorithmTab.TabIndex = 0;
             this.algorithmTab.Tag = "";
+            this.algorithmTab.SelectedIndexChanged += new System.EventHandler(this.algorithmTab_SelectedIndexChanged);
             // 
             // tspTab
             // 
@@ -71,7 +72,6 @@
             this.tspTab.TabIndex = 0;
             this.tspTab.Text = "TSP";
             this.tspTab.UseVisualStyleBackColor = true;
-            this.tspTab.Click += new System.EventHandler(this.tspTab_Click);
             // 
             // tspPlayerPanel
             // 
@@ -189,7 +189,6 @@
             this.cpmpTab.TabIndex = 1;
             this.cpmpTab.Text = "CPMP";
             this.cpmpTab.UseVisualStyleBackColor = true;
-            this.cpmpTab.Click += new System.EventHandler(this.cpmpTab_Click);
             // 
             // TrajectoryDisplay
             // 

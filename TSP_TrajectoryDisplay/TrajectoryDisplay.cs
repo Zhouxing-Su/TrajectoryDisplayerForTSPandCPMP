@@ -14,22 +14,25 @@ namespace TSP_TrajectoryDisplay
     public partial class TrajectoryDisplay : Form
     {
         private TspDisplay tspDisplay;
+        //private CpmpDisplay CpmpDisplay;
 
         public TrajectoryDisplay() {
             InitializeComponent();
-            //SetStyle(ControlStyles.DoubleBuffer, true);
 
             tspDisplay = new TspDisplay(this, tspSolutionSpinButton, tspPlayButton,
                 tspStopButton, tspSolutionSlider, tspPaintPanel);
+
+            //CpmpDisplay = new CpmpDisplay();
         }
 
-        private void cpmpTab_Click(object sender, EventArgs e) {
-            tspDisplay.pause();
+        private void algorithmTab_SelectedIndexChanged(object sender, EventArgs e) {
+            if (algorithmTab.SelectedIndex == algorithmTab.TabPages.IndexOfKey("TSP")) {
+                //cpmpDisplay.pause();
+            } else if (algorithmTab.SelectedIndex == algorithmTab.TabPages.IndexOfKey("CPMP")) {
+                tspDisplay.pause();
+            }
         }
 
-        private void tspTab_Click(object sender, EventArgs e) {
-
-        }
 
         #region TSP event
         private void tspSolutionSpinButton_ValueChanged(object sender, EventArgs e) {

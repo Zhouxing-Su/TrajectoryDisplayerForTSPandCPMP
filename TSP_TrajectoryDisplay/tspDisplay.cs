@@ -14,19 +14,21 @@ namespace TSP_TrajectoryDisplay
     {
         public const int DISPLAY_INTERVAL = 500;
 
-        public bool isPlaying;
-        private System.Timers.Timer timer;
+        public bool isPlaying;                      // init in TspDisplay()
 
-        private TrajectoryDisplay form;
-        private NumericUpDown solutionSpinButton;
-        private Button playButton;
-        private Button stopButton;
-        private TrackBar solutionSlider;
-        private Panel paintPanel;
+        private System.Timers.Timer timer;          // init in TspDisplay()
 
-        private int totalStep;
-        private int step;
+        private TrajectoryDisplay form;             // init in TspDisplay()
+        private NumericUpDown solutionSpinButton;   // init in TspDisplay()
+        private Button playButton;                  // init in TspDisplay()
+        private Button stopButton;                  // init in TspDisplay()
+        private TrackBar solutionSlider;            // init in TspDisplay()
+        private Panel paintPanel;                   // init in TspDisplay()
+
+        private int step;                           // init in TspDisplay()
         private delegate void setStepDelegate(int newStep);
+
+        private int totalStep;                      // init in readTrajectory()
 
 
         public TspDisplay(
@@ -50,7 +52,7 @@ namespace TSP_TrajectoryDisplay
             timer.Elapsed += displayNextStep;
             isPlaying = false;
 
-            readTrajectory();   // totalStep will be initialized inside
+            readTrajectory();
 
             tspSolutionSlider.Maximum = totalStep;
             tspSolutionSpinButton.Maximum = totalStep;
@@ -63,6 +65,10 @@ namespace TSP_TrajectoryDisplay
             Pen p = new Pen(Color.Black);
             g.DrawLine(p, 0, 0, paintPanel.Width, step);
             g.Dispose();
+        }
+
+        private void readTrajectory() {
+            totalStep = 466;
         }
 
         #region play control
@@ -102,9 +108,5 @@ namespace TSP_TrajectoryDisplay
             }
         }
         #endregion play control
-
-        private void readTrajectory() {
-            totalStep = 466;
-        }
     }
 }
