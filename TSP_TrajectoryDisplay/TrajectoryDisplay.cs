@@ -20,7 +20,7 @@ namespace TSP_TrajectoryDisplay
             //SetStyle(ControlStyles.DoubleBuffer, true);
 
             tspDisplay = new TspDisplay(this, tspSolutionSpinButton, tspPlayButton,
-                tspStopButton, tspSolutionSlider, tspPaintPanel, 466);
+                tspStopButton, tspSolutionSlider, tspPaintPanel);
         }
 
         private void cpmpTab_Click(object sender, EventArgs e) {
@@ -31,6 +31,7 @@ namespace TSP_TrajectoryDisplay
 
         }
 
+        #region TSP event
         private void tspSolutionSpinButton_ValueChanged(object sender, EventArgs e) {
             tspDisplay.setStep(Decimal.ToInt32(tspSolutionSpinButton.Value));
         }
@@ -50,5 +51,10 @@ namespace TSP_TrajectoryDisplay
         private void tspStopButton_Click(object sender, EventArgs e) {
             tspDisplay.stop();
         }
+
+        private void tspPaintPanel_Paint(object sender, PaintEventArgs e) {
+            tspDisplay.displaySolution();
+        }
+        #endregion TSP event
     }
 }

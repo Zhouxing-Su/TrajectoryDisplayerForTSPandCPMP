@@ -12,8 +12,10 @@ namespace TSP_TrajectoryDisplay
 {
     class TspDisplay
     {
+        public const int DISPLAY_INTERVAL = 500;
+
         public bool isPlaying;
-        System.Timers.Timer timer;
+        private System.Timers.Timer timer;
 
         private TrajectoryDisplay form;
         private NumericUpDown solutionSpinButton;
@@ -21,8 +23,6 @@ namespace TSP_TrajectoryDisplay
         private Button stopButton;
         private TrackBar solutionSlider;
         private Panel paintPanel;
-
-        private Thread tPaint;
 
         private int totalStep;
         private int step;
@@ -36,8 +36,7 @@ namespace TSP_TrajectoryDisplay
                 Button tspStopButton,
                 TrackBar tspSolutionSlider,
                 Panel tspPaintPanel,
-                int tspTotalStep,
-                int displayInterval = 500,
+                int displayInterval = DISPLAY_INTERVAL,
                 int initStep = 1) {
             form = tspForm;
             solutionSpinButton = tspSolutionSpinButton;
@@ -46,25 +45,27 @@ namespace TSP_TrajectoryDisplay
             solutionSlider = tspSolutionSlider;
             paintPanel = tspPaintPanel;
 
-            totalStep = tspTotalStep;
-            tspSolutionSlider.Maximum = totalStep;
-            tspSolutionSpinButton.Maximum = totalStep;
-
-            isPlaying = false;
             timer = new System.Timers.Timer();
             timer.Interval = displayInterval;
             timer.Elapsed += displayNextStep;
+            isPlaying = false;
+
+            readTrajectory();   // totalStep will be initialized inside
+
+            tspSolutionSlider.Maximum = totalStep;
+            tspSolutionSpinButton.Maximum = totalStep;
 
             setStep(initStep);
         }
 
-        public void setStep(int newStep) {
-            step = (newStep > totalStep) ? 1 : newStep;
-            solutionSlider.Value = step;
-            solutionSpinButton.Value = step;
-            displaySolution();
+        public void displaySolution() {
+            Graphics g = paintPanel.CreateGraphics();
+            Pen p = new Pen(Color.Black);
+            g.DrawLine(p, 0, 0, paintPanel.Width, step);
+            g.Dispose();
         }
 
+        #region play control
         public void play() {
             timer.Start();
 
@@ -87,12 +88,11 @@ namespace TSP_TrajectoryDisplay
             isPlaying = false;
         }
 
-        private void displaySolution() {
+        public void setStep(int newStep) {
+            step = (newStep > totalStep) ? 1 : newStep;
+            solutionSlider.Value = step;
+            solutionSpinButton.Value = step;
             paintPanel.Refresh();
-            Graphics g = paintPanel.CreateGraphics();
-            Pen p = new Pen(Color.Black);
-            g.DrawLine(p, 0, 0, paintPanel.Width, step);
-            g.Dispose();
         }
 
         private void displayNextStep(object sender, ElapsedEventArgs e) {
@@ -100,6 +100,11 @@ namespace TSP_TrajectoryDisplay
             if (step == totalStep) {
                 pause();
             }
+        }
+        #endregion play control
+
+        private void readTrajectory() {
+            totalStep = 466;
         }
     }
 }

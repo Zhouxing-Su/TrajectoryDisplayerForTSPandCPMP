@@ -178,6 +178,7 @@
             this.tspPaintPanel.Name = "tspPaintPanel";
             this.tspPaintPanel.Size = new System.Drawing.Size(594, 410);
             this.tspPaintPanel.TabIndex = 6;
+            this.tspPaintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.tspPaintPanel_Paint);
             // 
             // cpmpTab
             // 
