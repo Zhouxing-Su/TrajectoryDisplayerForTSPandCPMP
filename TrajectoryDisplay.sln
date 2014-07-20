@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSP_TrajectoryDisplay", "TSP_TrajectoryDisplay\TSP_TrajectoryDisplay.csproj", "{9D8472C7-083D-44AB-8064-0356A9375FC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrajectoryDisplay", "TrajectoryDisplay\TrajectoryDisplay.csproj", "{9D8472C7-083D-44AB-8064-0356A9375FC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerPanel", "PlayerPanel\PlayerPanel.csproj", "{58A28F90-6CAF-4596-96AC-F39D4D6755AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TspPlayerPanel", "PlayerPanel\TspPlayerPanel.csproj", "{58A28F90-6CAF-4596-96AC-F39D4D6755AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

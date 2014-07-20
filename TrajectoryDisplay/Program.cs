@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TSP_TrajectoryDisplay
+namespace TrajectoryDisplay
 {
     static class Program
     {

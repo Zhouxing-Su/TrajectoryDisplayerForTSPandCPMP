@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TSP_TrajectoryDisplay
+namespace TrajectoryDisplay
 {
     public partial class TrajectoryDisplay : Form
     {

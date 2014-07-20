@@ -11,7 +11,7 @@ using System.Timers;
 using System.Drawing.Drawing2D;
 using System.IO;
 
-namespace PlayerPanel
+namespace TspPlayerPanel
 {
     public partial class TspPlayerPanel : UserControl
     {

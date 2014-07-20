@@ -1,4 +1,4 @@
-﻿namespace PlayerPanel
+﻿namespace TspPlayerPanel
 {
     partial class TspPlayerPanel
     {
@@ -90,7 +90,7 @@
             // 
             // tspStopButton
             // 
-            this.tspStopButton.BackgroundImage = global::PlayerPanel.Properties.Resources._30stop;
+            this.tspStopButton.BackgroundImage = global::TspPlayerPanel.Properties.Resources._30stop;
             this.tspStopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tspStopButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tspStopButton.Location = new System.Drawing.Point(557, 3);

@@ -1,4 +1,4 @@
-﻿namespace TSP_TrajectoryDisplay
+﻿namespace TrajectoryDisplay
 {
     partial class TrajectoryDisplay
     {
@@ -32,7 +32,7 @@
             this.algorithmTab = new System.Windows.Forms.TabControl();
             this.tspTab = new System.Windows.Forms.TabPage();
             this.cpmpTab = new System.Windows.Forms.TabPage();
-            this.tspPlayerPanel = new PlayerPanel.TspPlayerPanel();
+            this.tspPlayerPanel = new TspPlayerPanel.TspPlayerPanel();
             this.algorithmTab.SuspendLayout();
             this.tspTab.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +102,7 @@
         private System.Windows.Forms.TabControl algorithmTab;
         private System.Windows.Forms.TabPage tspTab;
         private System.Windows.Forms.TabPage cpmpTab;
-        private PlayerPanel.TspPlayerPanel tspPlayerPanel;
+        private TspPlayerPanel.TspPlayerPanel tspPlayerPanel;
     }
 }
 
