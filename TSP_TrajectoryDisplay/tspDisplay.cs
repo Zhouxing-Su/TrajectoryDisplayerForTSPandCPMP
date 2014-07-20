@@ -121,9 +121,9 @@ namespace TSP_TrajectoryDisplay
         }
 
         private void readTrajectory() {
-            string instPath = @"instances/tsp/eil51.tsp";
-            string objPath = @"instances/tsp/LOTLS_eil51.txt";
-            string slnPath = @"instances/tsp/LOTS_eil51.txt";
+            string instPath = @"../../../instances/tsp/eil51.tsp";
+            string objPath = @"../../../instances/tsp/LOTLS_eil51.txt";
+            string slnPath = @"../../../instances/tsp/LOTS_eil51.txt";
 
             pointList = new List<Point>();
             string[] inst = File.ReadAllLines(instPath);
