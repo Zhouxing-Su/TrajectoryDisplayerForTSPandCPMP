@@ -14,6 +14,7 @@ namespace TSP_TrajectoryDisplay
 {
     class TspDisplay
     {
+        public const int MIN_STEP = 0;
         public const int DISPLAY_INTERVAL = 500;
         public const int ARROW_WIDTH = 4;
         public const int ARROW_HEIGHT = 6;
@@ -32,7 +33,7 @@ namespace TSP_TrajectoryDisplay
         private int step;                           // init in TspDisplay()
         private delegate void setStepDelegate(int newStep);
 
-        private int totalStep;                      // init in readTrajectory()
+        private int maxStep;                      // init in readTrajectory()
         List<Point> pointList;                      // init in readTrajectory()
         int instMaxX;                               // init in readTrajectory()
         int instMaxY;                               // init in readTrajectory()
@@ -49,7 +50,7 @@ namespace TSP_TrajectoryDisplay
                 TrackBar tspSolutionSlider,
                 Panel tspPaintPanel,
                 int displayInterval = DISPLAY_INTERVAL,
-                int initStep = 1) {
+                int initStep = MIN_STEP) {
             form = tspForm;
             solutionSpinButton = tspSolutionSpinButton;
             playButton = tspPlayButton;
@@ -64,8 +65,10 @@ namespace TSP_TrajectoryDisplay
 
             readTrajectory();
 
-            tspSolutionSlider.Maximum = totalStep;
-            tspSolutionSpinButton.Maximum = totalStep;
+            tspSolutionSlider.Minimum = MIN_STEP;
+            tspSolutionSlider.Maximum = maxStep;
+            tspSolutionSpinButton.Minimum = MIN_STEP;
+            tspSolutionSpinButton.Maximum = maxStep;
 
             setStep(initStep);
         }
@@ -84,7 +87,7 @@ namespace TSP_TrajectoryDisplay
             int ampY = paintPanel.Height / instMaxY;    // expand the graph to whole panel
 
             // draw last solution
-            if (step > 1) {
+            if (step > MIN_STEP) {
                 drawCircuit(paintBuffer.Graphics, p, step - 1, ampX, ampY);
             }
 
@@ -118,9 +121,9 @@ namespace TSP_TrajectoryDisplay
         }
 
         private void readTrajectory() {
-            string instPath = @"../../instances/tsp/eil51.tsp";
-            string objPath = @"../../instances/tsp/LOTLS_eil51.txt";
-            string slnPath = @"../../instances/tsp/LOTS_eil51.txt";
+            string instPath = @"instances/tsp/eil51.tsp";
+            string objPath = @"instances/tsp/LOTLS_eil51.txt";
+            string slnPath = @"instances/tsp/LOTS_eil51.txt";
 
             pointList = new List<Point>();
             string[] inst = File.ReadAllLines(instPath);
@@ -136,11 +139,11 @@ namespace TSP_TrajectoryDisplay
             }
 
             objList = Array.ConvertAll(File.ReadAllLines(objPath), int.Parse);
-            totalStep = objList.Length;
+            maxStep = objList.Length - 1;
 
-            slnList = new int[totalStep][];
+            slnList = new int[objList.Length][];
             string[] sln = File.ReadAllLines(slnPath);
-            for (int i = 0; i < totalStep; i++) {
+            for (int i = 0; i < objList.Length; i++) {
                 string[] seq = sln[i].Split(' ');
                 slnList[i] = Array.ConvertAll(seq, int.Parse);
             }
@@ -164,13 +167,13 @@ namespace TSP_TrajectoryDisplay
         public void stop() {
             timer.Stop();
 
-            setStep(1);
+            setStep(MIN_STEP);
             playButton.BackgroundImage = Properties.Resources._30play;
             isPlaying = false;
         }
 
         public void setStep(int newStep) {
-            step = (newStep > totalStep) ? 1 : newStep;
+            step = (newStep > maxStep) ? MIN_STEP : newStep;
             solutionSlider.Value = step;
             solutionSpinButton.Value = step;
             paintPanel.Refresh();
@@ -178,7 +181,7 @@ namespace TSP_TrajectoryDisplay
 
         private void displayNextStep(object sender, ElapsedEventArgs e) {
             form.Invoke(new setStepDelegate(setStep), step + 1);
-            if (step == totalStep) {
+            if (step == maxStep) {
                 pause();
             }
         }
