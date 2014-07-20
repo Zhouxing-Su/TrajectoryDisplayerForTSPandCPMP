@@ -172,6 +172,7 @@
             // 
             // tspPaintPanel
             // 
+            this.tspPaintPanel.BackColor = System.Drawing.Color.LightGray;
             this.tspPaintPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tspPaintPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tspPaintPanel.Location = new System.Drawing.Point(3, 3);

@@ -70,9 +70,13 @@ namespace TSP_TrajectoryDisplay
             setStep(initStep);
         }
 
-        public void displaySolution() {
-            Graphics g = paintPanel.CreateGraphics();
-            g.SmoothingMode = SmoothingMode.AntiAlias;
+        public void drawSolution(Graphics g) {
+            BufferedGraphicsContext currentContext = BufferedGraphicsManager.Current;
+            BufferedGraphics paintBuffer = currentContext.Allocate(
+                g, paintPanel.DisplayRectangle);
+            paintBuffer.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            paintBuffer.Graphics.Clear(Color.LightGray);
+
             Pen p = new Pen(Color.Blue, 1);
             p.CustomEndCap = new AdjustableArrowCap(ARROW_WIDTH, ARROW_HEIGHT, true);
 
@@ -81,15 +85,18 @@ namespace TSP_TrajectoryDisplay
 
             // draw last solution
             if (step > 1) {
-                drawCircuit(g, p, step - 1, ampX, ampY);
+                drawCircuit(paintBuffer.Graphics, p, step - 1, ampX, ampY);
             }
 
             // draw current solution
             p.Color = Color.Black;
             p.Width = 2;
-            drawCircuit(g, p, step, ampX, ampY);
+            drawCircuit(paintBuffer.Graphics, p, step, ampX, ampY);
 
-            g.Dispose();
+            paintBuffer.Render();
+            paintBuffer.Render(paintPanel.CreateGraphics());
+
+            paintBuffer.Dispose();
         }
 
         private void drawCircuit(Graphics g, Pen p, int step, int ampX = 1, int ampY = 1) {

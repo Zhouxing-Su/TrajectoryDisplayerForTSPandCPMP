@@ -56,7 +56,7 @@ namespace TSP_TrajectoryDisplay
         }
 
         private void tspPaintPanel_Paint(object sender, PaintEventArgs e) {
-            tspDisplay.displaySolution();
+            tspDisplay.drawSolution(e.Graphics);
         }
         #endregion TSP event
     }
