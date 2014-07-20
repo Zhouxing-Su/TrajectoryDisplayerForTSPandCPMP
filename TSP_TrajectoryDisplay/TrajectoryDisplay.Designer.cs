@@ -47,7 +47,7 @@
             this.algorithmTab.Location = new System.Drawing.Point(12, 12);
             this.algorithmTab.Name = "algorithmTab";
             this.algorithmTab.SelectedIndex = 0;
-            this.algorithmTab.Size = new System.Drawing.Size(614, 484);
+            this.algorithmTab.Size = new System.Drawing.Size(607, 466);
             this.algorithmTab.TabIndex = 0;
             this.algorithmTab.Tag = "";
             this.algorithmTab.SelectedIndexChanged += new System.EventHandler(this.algorithmTab_SelectedIndexChanged);
@@ -58,7 +58,7 @@
             this.tspTab.Location = new System.Drawing.Point(4, 22);
             this.tspTab.Name = "tspTab";
             this.tspTab.Padding = new System.Windows.Forms.Padding(3);
-            this.tspTab.Size = new System.Drawing.Size(606, 458);
+            this.tspTab.Size = new System.Drawing.Size(599, 440);
             this.tspTab.TabIndex = 0;
             this.tspTab.Text = "TSP";
             this.tspTab.UseVisualStyleBackColor = true;
@@ -78,14 +78,14 @@
             this.tspPlayerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tspPlayerPanel.Location = new System.Drawing.Point(3, 3);
             this.tspPlayerPanel.Name = "tspPlayerPanel";
-            this.tspPlayerPanel.Size = new System.Drawing.Size(600, 452);
+            this.tspPlayerPanel.Size = new System.Drawing.Size(593, 434);
             this.tspPlayerPanel.TabIndex = 0;
             // 
             // TrajectoryDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 502);
+            this.ClientSize = new System.Drawing.Size(631, 484);
             this.Controls.Add(this.algorithmTab);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

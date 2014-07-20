@@ -13,9 +13,9 @@ using System.IO;
 
 namespace PlayerPanel
 {
-    // call init() before using it
     public partial class TspPlayerPanel : UserControl
     {
+        public const int MIN_STEP = 0;
         public const int DISPLAY_INTERVAL = 500;
         public const int ARROW_WIDTH = 4;
         public const int ARROW_HEIGHT = 6;
@@ -37,9 +37,11 @@ namespace PlayerPanel
 
         public TspPlayerPanel() {
             InitializeComponent();
+
+            init();
         }
 
-        public void init(int displayInterval = DISPLAY_INTERVAL, int initStep = 1) {
+        private void init(int displayInterval = DISPLAY_INTERVAL, int initStep = MIN_STEP) {
             timer = new System.Timers.Timer();
             timer.Interval = displayInterval;
             timer.Elapsed += displayNextStep;
@@ -47,7 +49,9 @@ namespace PlayerPanel
 
             readTrajectory();
 
+            tspSolutionSlider.Minimum = MIN_STEP;
             tspSolutionSlider.Maximum = totalStep;
+            tspSolutionSpinButton.Minimum = MIN_STEP;
             tspSolutionSpinButton.Maximum = totalStep;
 
             setStep(initStep);
@@ -93,8 +97,9 @@ namespace PlayerPanel
             Pen p = new Pen(Color.Blue, 1);
             p.CustomEndCap = new AdjustableArrowCap(ARROW_WIDTH, ARROW_HEIGHT, true);
 
-            int ampX = tspPaintPanel.Width / instMaxX;     // expand the graph to whole panel
-            int ampY = tspPaintPanel.Height / instMaxY;    // expand the graph to whole panel
+            // expand the graph to whole panel
+            int ampX = (instMaxX > tspPaintPanel.Width || instMaxX <= 0) ? 1 : (tspPaintPanel.Width / instMaxX);
+            int ampY = (instMaxY > tspPaintPanel.Height || instMaxY <= 0) ? 1 : (tspPaintPanel.Height / instMaxY);
 
             // draw last solution
             if (step > 1) {
@@ -150,13 +155,13 @@ namespace PlayerPanel
         public void stop() {
             timer.Stop();
 
-            setStep(1);
+            setStep(MIN_STEP);
             tspPlayButton.BackgroundImage = Properties.Resources._30play;
             isPlaying = false;
         }
 
         public void setStep(int newStep) {
-            step = (newStep > totalStep) ? 1 : newStep;
+            step = (newStep >= totalStep) ? MIN_STEP : newStep;
             tspSolutionSlider.Value = step;
             tspSolutionSpinButton.Value = step;
             tspPaintPanel.Refresh();
@@ -164,7 +169,7 @@ namespace PlayerPanel
 
         private void displayNextStep(object sender, ElapsedEventArgs e) {
             playerPanel.Invoke(new setStepDelegate(setStep), step + 1);
-            if (step == totalStep) {
+            if (step == (totalStep - 1)) {
                 pause();
             }
         }

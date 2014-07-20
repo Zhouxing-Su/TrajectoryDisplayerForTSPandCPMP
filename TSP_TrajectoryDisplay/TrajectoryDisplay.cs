@@ -15,8 +15,6 @@ namespace TSP_TrajectoryDisplay
     {
         public TrajectoryDisplay() {
             InitializeComponent();
-
-            tspPlayerPanel.init();
         }
 
         private void algorithmTab_SelectedIndexChanged(object sender, EventArgs e) {

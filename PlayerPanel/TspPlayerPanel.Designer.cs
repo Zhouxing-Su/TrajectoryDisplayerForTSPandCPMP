@@ -105,8 +105,7 @@
             this.tspSolutionSlider.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tspSolutionSlider.LargeChange = 50;
             this.tspSolutionSlider.Location = new System.Drawing.Point(3, 3);
-            this.tspSolutionSlider.Maximum = 466;
-            this.tspSolutionSlider.Minimum = 1;
+            this.tspSolutionSlider.Maximum = 465;
             this.tspSolutionSlider.Name = "tspSolutionSlider";
             this.tspSolutionSlider.Size = new System.Drawing.Size(454, 24);
             this.tspSolutionSlider.TabIndex = 3;
@@ -120,12 +119,7 @@
             this.tspSolutionSpinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tspSolutionSpinButton.Location = new System.Drawing.Point(463, 3);
             this.tspSolutionSpinButton.Maximum = new decimal(new int[] {
-            466,
-            0,
-            0,
-            0});
-            this.tspSolutionSpinButton.Minimum = new decimal(new int[] {
-            1,
+            465,
             0,
             0,
             0});
