@@ -28,11 +28,12 @@ namespace PlayerPanel
         private delegate void setStepDelegate(int newStep);
 
         private int totalStep;                      // init in readTrajectory()
-        List<Point> pointList;                      // init in readTrajectory()
-        int instMaxX;                               // init in readTrajectory()
-        int instMaxY;                               // init in readTrajectory()
-        int[] objList;                              // init in readTrajectory()
-        int[][] slnList;                            // init in readTrajectory()
+        private int maxStep;                        // init in readTrajectory()
+        private List<Point> pointList;              // init in readTrajectory()
+        private int instMaxX;                       // init in readTrajectory()
+        private int instMaxY;                       // init in readTrajectory()
+        private int[] objList;                      // init in readTrajectory()
+        private int[][] slnList;                    // init in readTrajectory()
 
 
         public TspPlayerPanel() {
@@ -50,9 +51,9 @@ namespace PlayerPanel
             readTrajectory();
 
             tspSolutionSlider.Minimum = MIN_STEP;
-            tspSolutionSlider.Maximum = totalStep;
+            tspSolutionSlider.Maximum = maxStep;
             tspSolutionSpinButton.Minimum = MIN_STEP;
-            tspSolutionSpinButton.Maximum = totalStep;
+            tspSolutionSpinButton.Maximum = maxStep;
 
             setStep(initStep);
         }
@@ -77,6 +78,7 @@ namespace PlayerPanel
 
             objList = Array.ConvertAll(File.ReadAllLines(objPath), int.Parse);
             totalStep = objList.Length;
+            maxStep = totalStep - 1;
 
             slnList = new int[totalStep][];
             string[] sln = File.ReadAllLines(slnPath);
@@ -101,8 +103,8 @@ namespace PlayerPanel
             int ampX = (instMaxX > tspPaintPanel.Width || instMaxX <= 0) ? 1 : (tspPaintPanel.Width / instMaxX);
             int ampY = (instMaxY > tspPaintPanel.Height || instMaxY <= 0) ? 1 : (tspPaintPanel.Height / instMaxY);
 
-            // draw last solution
-            if (step > 1) {
+            // draw last solution if there is
+            if (step > MIN_STEP) {
                 drawCircuit(paintBuffer.Graphics, p, step - 1, ampX, ampY);
             }
 
@@ -169,7 +171,7 @@ namespace PlayerPanel
 
         private void displayNextStep(object sender, ElapsedEventArgs e) {
             playerPanel.Invoke(new setStepDelegate(setStep), step + 1);
-            if (step == (totalStep - 1)) {
+            if (step == maxStep) {
                 pause();
             }
         }
